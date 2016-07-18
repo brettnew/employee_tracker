@@ -23,3 +23,15 @@
 
   <button type="submit">Add employee</button>
 </form>
+
+<h3>Divisions</h3>
+
+<% if @divisions.any? %>
+  <ul>
+    <% @divisions.each do |division| %>
+      <li><a href="/divisions/<%= division.id() %>"><%= division.description() %></a></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p> There are no division yet! </p>
+<% end %>
