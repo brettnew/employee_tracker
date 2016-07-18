@@ -13,3 +13,14 @@
   <% else %>
   <p>There are no employees in this division</p>
   <% end %>
+
+  <h3>Rename a division</h3>
+
+  <form action="/divisions/" method="post">
+    <input type="hidden" name="_method" value="patch">
+
+    <label for="rename_division">Division Name</label>
+    <input type="text" id="rename_division" name="rename_division">
+
+    <button type="submit">Rename Division</button>
+  </form>

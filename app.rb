@@ -36,3 +36,20 @@ get('/divisions/:id') do
   @divisions = Division.all()
   erb(:division)
 end
+
+patch('/divisions/:id') do
+  description = params.fetch("name")
+  @division = Division.find(params.fetch('id').to_i())
+  @division.update({:description => description})
+  @divisions = Division.all()
+  erb(:index)
+end
+
+delete('/divisions/:id') do
+s
+end
+
+get('/divisions/:id/edit') do
+  @division = Division.find(params.fetch("id").to_i())
+  erb(:division_edit)
+end

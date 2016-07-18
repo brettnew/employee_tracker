@@ -19,7 +19,7 @@
   </select>
 
   <label for="name">Employee name</label>
-  <input type="text" name="name" name="name">
+  <input type="text" name="name" id="name">
 
   <button type="submit">Add employee</button>
 </form>
@@ -29,7 +29,7 @@
 <% if @divisions.any? %>
   <ul>
     <% @divisions.each do |division| %>
-      <li><a href="/divisions/<%= division.id() %>"><%= division.description() %></a></li>
+      <li><a href="/divisions/<%= division.id() %>"><%= division.description() %></a><a href="/divisions/<%= division.id() %>/edit">   Edit</a></li>
     <% end %>
   </ul>
 <% else %>
