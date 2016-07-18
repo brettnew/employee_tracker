@@ -1,0 +1,15 @@
+<h1><%= @division.description %></h1>
+
+
+<% if @division.employees().any?() %>
+  <h3>Employees:</h3>
+
+  <ul>
+    <% @division.employees().each() do |employee| %>
+    <li><%= employee.name() %></li>
+    <% end %>
+  </ul>
+
+  <% else %>
+  <p>There are no employees in this division</p>
+  <% end %>

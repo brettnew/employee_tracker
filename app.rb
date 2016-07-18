@@ -30,3 +30,9 @@ post('/employees') do
   @divisions = Division.all()
   erb(:index)
 end
+
+get('/divisions/:id') do
+  @division = Division.find(params.fetch('id').to_i())
+  @divisions = Division.all()
+  erb(:division)
+end
