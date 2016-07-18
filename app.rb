@@ -15,7 +15,7 @@ end
 
 post('/divisions') do
   description = params.fetch('description')
-  division = Division.new({:description => description, :id => nil})
+  division = Division.create({:description => description, :id => nil})
   division.save()
   @divisions = Division.all()
   erb(:index)
@@ -24,7 +24,7 @@ end
 post('/employees') do
   name = params.fetch('name')
   division_id = params.fetch('division_id')
-  employee = Employee.new({:name => name, :division_id => division_id, :id => nil})
+  employee = Employee.create({:name => name, :division_id => division_id, :id => nil})
   employee.save()
   @employees = Employee.all()
   @divisions = Division.all()
@@ -46,7 +46,10 @@ patch('/divisions/:id') do
 end
 
 delete('/divisions/:id') do
-s
+  @division = Division.find(params.fetch('id').to_i())
+  @division.destroy()
+  @divisions = Division.all()
+  erb(:index)
 end
 
 get('/divisions/:id/edit') do
